@@ -18,9 +18,10 @@ export default {
       const targetUrl = pathname.slice(1)
       const headers = new Headers(request.headers)
       headers.set('host', url.host)
-      return fetch(targetUrl, {
+      return fetch(targetUrl + url.search, {
         method: request.method,
         headers: headers,
+        body: request.body,
       })
     }
     return new Response('Hello World!');
